@@ -11,6 +11,8 @@ var path = require('path');
 
 var app = express();
 
+var mongoose = require('mongoose');
+
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
@@ -27,6 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+mongoose.connect("mongodb://localhost/trainingProject");
 
 app.get('/', routes.index);
 app.get('/users', user.list);
