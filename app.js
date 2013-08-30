@@ -32,8 +32,17 @@ if ('development' == app.get('env')) {
 
 mongoose.connect("mongodb://localhost/trainingProject");
 
-app.get('/', routes.index);
-app.get('/users', user.list);
+// Force to login
+
+app.get("/:wilcard", function(req, res) {
+	res.redirect("/");
+});
+
+// Index
+
+app.get("/", function(req, res) {
+	res.render('index', { title: "Training Project" });
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
