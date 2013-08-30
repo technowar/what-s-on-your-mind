@@ -40,8 +40,6 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-mongoose.connect("mongodb://localhost/trainingProject");
-
 // Index page
 app.get('/', index.page);
 

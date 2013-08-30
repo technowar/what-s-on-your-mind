@@ -3,5 +3,5 @@
  */
 
 exports.user = function(req, res){
-	res.end('Test');
+	res.end(JSON.stringify(req.body));
 };
