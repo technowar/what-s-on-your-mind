@@ -8,27 +8,22 @@ block content
 
 		.field
 			.left_field
-				form(method="POST" action="/home")
+				form(method="POST" action="")
 					p Name:
 						.right_field
 							input#name(type="text", name="name")
 
+					br
 					p Username:
 						.right_field
 							input#uname(type="text", name="uname")
 
+					br
 					p Email:
 						.right_field
 							input#email(type="email", name="email")
 
-					p Password:
-						.right_field
-							input#pword(type="password", name="pword")
-
-					p Confirm Password:
-						.right_field
-							input#confpword(type="password", name="confpword")
-
+					br
 					.right_field
 						p: button(type="submit") Create
 
@@ -42,9 +37,11 @@ block content
 						.right_field
 							input#name(type="text", name="name")
 
+					br
 					p Password:
 						.right_field
 							input#pword(type="password", name="pword")
 
+					br
 					.right_field
 						p: button(type="submit") Login

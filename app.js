@@ -4,14 +4,20 @@
  */
 
 var express = require('express');
-var routes = require('./routes');
-var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 
 var app = express();
 
 var mongoose = require('mongoose');
+
+/**
+ * Routes
+ */
+
+var index = require('./routes/index');
+var wildcard = require('./routes/wildcard');
+var signup = require('./routes/signup');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -32,23 +38,14 @@ if ('development' == app.get('env')) {
 
 mongoose.connect("mongodb://localhost/trainingProject");
 
-// Force to login
+// Index page
+app.get('/', index.page);
 
-app.get("/:wilcard", function(req, res) {
-	res.redirect("/");
-});
+// Force to index page
+app.get('/:wildcard', wildcard.redirect);
 
-// Index
-
-app.get("/", function(req, res) {
-	res.render('index', { title: "Training Project" });
-});
-
-// Home
-
-app.post("/home", function(req, res) {
-	res.render("home");
-});
+// Signup
+app.post('/', signup.user);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
