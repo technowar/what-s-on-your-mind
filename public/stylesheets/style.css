@@ -1,11 +1,18 @@
-left_col {
-	background: blue;
-	float: left;
-	width: 500px;
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
-right_col {
-	background: red;
-	float: right;
-	width: 500px;
+a {
+  color: #00B7FF;
+}
+/* Columns */
+.left_col {
+  background: blue;
+  float: left;
+  width: 500px;
+}
+.right_col {
+  background: red;
+  float: right;
+  width: 500px;
 }
