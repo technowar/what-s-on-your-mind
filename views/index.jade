@@ -2,3 +2,30 @@ extends layout
 
 block content
 	h1= title
+
+	#wrap.left_col
+		h2 Register
+
+		.field
+			.left_field
+				form(method="POST" action="/home")
+					p Name:
+						.right_field
+							input#name(type="text", name="name")
+					p Username:
+						.right_field
+							input#uname(type="text", name="uname")
+					p Email:
+						.right_field
+							input#email(type="email", name="email")
+					p Password:
+						.right_field
+							input#pword(type="password", name="pword")
+					p Confirm Password:
+						.right_field
+							input#confpword(type="password", name="confpword")
+					.right_field
+						p: button(type="submit") Create
+
+	#wrap.right_col
+		h2 Login
