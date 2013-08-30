@@ -7,8 +7,6 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 
-var app = express();
-
 /**
  * Routes
  */
@@ -21,7 +19,17 @@ var signup = require('./routes/signup');
  * Database
  */
 
+var mongoose = require('mongoose');
 var db = require('./model/db');
+var User = db.signup(mongoose);
+
+mongoose.connect("mongodb://localhost/trainingProject");
+
+/**
+ * App
+ */
+
+var app = express();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -40,11 +48,11 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+// Force to redirect page to index
+app.get('/:wildcard', wildcard.redirect);
+
 // Index page
 app.get('/', index.page);
-
-// Force to index page
-app.get('/:wildcard', wildcard.redirect);
 
 // Signup
 app.post('/', signup.user);

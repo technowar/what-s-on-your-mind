@@ -1,11 +1,9 @@
-var mongoose = require('mongoose');
+exports.signup = function(mongoose) {
+	var UserSchema = mongoose.Schema({
+		name: String,
+		uname: String,
+		email: String,
+	});
 
-var UserSchema = new mongoose.Schema({
-	name: String,
-	uname: String,
-	email: String,
-});
-
-mongoose.model('Users', UserSchema);
-
-mongoose.connect("mongodb://localhost/trainingProject");
+	return mongoose.model('Users', UserSchema);
+};
