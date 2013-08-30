@@ -11,9 +11,10 @@ var path = require('path');
  * Routes
  */
 
-var index = require('./routes/index');
 var wildcard = require('./routes/wildcard');
+var index = require('./routes/index');
 var signup = require('./routes/signup');
+var login = require('./routes/login');
 
 /**
  * Database
@@ -54,8 +55,11 @@ app.get('/:wildcard', wildcard.redirect);
 // Index page
 app.get('/', index.page);
 
-// Signup
+// Signup User
 app.post('/', signup.user);
+
+// Login User
+app.post('/', login.user);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
