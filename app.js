@@ -9,8 +9,6 @@ var path = require('path');
 
 var app = express();
 
-var mongoose = require('mongoose');
-
 /**
  * Routes
  */
@@ -18,6 +16,12 @@ var mongoose = require('mongoose');
 var index = require('./routes/index');
 var wildcard = require('./routes/wildcard');
 var signup = require('./routes/signup');
+
+/**
+ * Database
+ */
+
+var db = require('./model/db');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
