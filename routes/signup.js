@@ -2,6 +2,7 @@
 /*
  * POST home page.
  */
+ 
 var mongoose = require('mongoose');
 var models = mongoose.models;
 
@@ -10,9 +11,11 @@ exports.user = function(req, res){
 
 	u.save(function(err, user) {
 		if (err) {
+			console.log(err);
+
 			res.send(400, 'Bad Request');
 		}
 
-		res.end(JSON.stringify(user));
+		res.redirect('/');
 	});
 };

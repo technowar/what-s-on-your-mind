@@ -4,5 +4,5 @@
  */
 
 exports.page = function(req, res){
-  res.render('index', { title: 'Training Project' });
+	res.render('index', { title: 'Training Project' });
 };

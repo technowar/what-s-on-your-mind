@@ -1,11 +1,35 @@
 var mongoose = require('mongoose');
-
+	
 exports.init = function() {
 	var UserSchema = mongoose.Schema({
-		name: String,
-		username: String,
-		email: String,
-		password: String
+		name: {
+			type: String,
+			required: true,
+			match: /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/
+		},
+		username: {
+			type: String,
+			trim: true,
+			lowercase: true,
+			required: true,
+			unique: true,
+			match: /^[a-z0-9]{6,20}$/
+		},
+		email: {
+			type: String,
+			trim: true,
+			lowercase: true,
+			required: true,
+			unique: true,
+			match: /^[a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
+		},
+		password: {
+			type: String,
+			trim: true,
+			lowercase: true,
+			required: true,
+			match: /^.{6,20}$/
+		}
 	});
 
 	UserSchema.methods.validPassword = function(password) {
