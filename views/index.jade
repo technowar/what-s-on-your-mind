@@ -8,7 +8,7 @@ block content
 
 		.field
 			.left_field
-				form(method="POST" action="")
+				form(method="POST" action="/signup")
 					p Name:
 						.right_field
 							input#name(type="text", name="name")
@@ -16,7 +16,7 @@ block content
 					br
 					p Username:
 						.right_field
-							input#uname(type="text", name="uname")
+							input#username(type="text", name="username")
 
 					br
 					p Email:
@@ -26,12 +26,7 @@ block content
 					br
 					p Password:
 						.right_field
-							input#pword(type="password", name="pword")
-
-					br
-					p Confirm Password:
-						.right_field
-							input#confpword(type="password", name="confpword")
+							input#password(type="password", name="password")
 
 					br
 					.right_field
@@ -42,7 +37,7 @@ block content
 
 		.field
 			.left_field
-				form(method="POST" action="")
+				form(method="POST" action="/home")
 					p Name:
 						.right_field
 							input#name(type="text", name="name")

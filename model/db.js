@@ -1,9 +1,22 @@
-exports.signup = function(mongoose) {
+var mongoose = require('mongoose');
+
+exports.init = function() {
 	var UserSchema = mongoose.Schema({
 		name: String,
-		uname: String,
+		username: String,
 		email: String,
+		password: String
 	});
 
-	return mongoose.model('Users', UserSchema);
+	UserSchema.methods.validPassword = function(password) {
+		if (this.password !== password) {
+			return false;
+		}
+
+		return true;
+	};
+
+	mongoose.model('Users', UserSchema);
+
+	return mongoose.models.Users;
 };
