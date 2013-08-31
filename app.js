@@ -23,11 +23,15 @@ var home = require('./routes/home');
  */
 
 var mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost/trainingProject");
+
+mongoose.connect('mongodb://localhost/trainingProject');
+
+mongoose.connection.on('error', function (err) {
+	if (err) { return console.log('No connection to database'); }
+});
 
 var db = require('./model/db').init();
 var User = db.User;
-
 
 /**
  * Passport
