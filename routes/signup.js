@@ -7,10 +7,10 @@ var mongoose = require('mongoose');
 var models = mongoose.models;
 
 exports.user = function(req, res){
-	var u = new models.Users(req.body);
+	var u = new models.User(req.body);
 
 	u.save(function(err, user) {
-		if (err) { res.render('fourhundred', { title: 'Bad Request' }); }
+		if (err) { return res.render('signuperror', { title: 'Fields not valid' }); }
 
 		else { res.redirect('/'); }
 	});

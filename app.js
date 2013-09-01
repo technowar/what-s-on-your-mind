@@ -26,12 +26,12 @@ var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/trainingProject');
 
+var db = require('./model/db').init();
+var User = db.User;
+
 mongoose.connection.on('error', function (err) {
 	if (err) { return console.log('No connection to database'); }
 });
-
-var db = require('./model/db').init();
-var User = db.User;
 
 /**
  * Passport

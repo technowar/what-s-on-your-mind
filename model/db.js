@@ -40,7 +40,7 @@ exports.init = function() {
 		return true;
 	};
 
-	mongoose.model('Users', UserSchema);
+	mongoose.model('User', UserSchema);
 
-	return mongoose.models.Users;
+	return mongoose.models;
 };
