@@ -11,22 +11,22 @@ block content
 				form(method="POST" action="/signup")
 					p Name:
 						.right_field
-							input#name(type="text", name="name")
+							input#name(type="text", name="name", placeholder="Name")
 
 					br
 					p Username:
 						.right_field
-							input#username(type="text", name="username")
+							input#username(type="text", name="username", placeholder="Username")
 
 					br
 					p Email:
 						.right_field
-							input#email(type="email", name="email")
+							input#email(type="email", name="email", placeholder="email@domain.com")
 
 					br
 					p Password:
 						.right_field
-							input#password(type="password", name="password")
+							input#password(type="password", name="password", placeholder="******")
 
 					br
 					.right_field
@@ -40,12 +40,12 @@ block content
 				form(method="POST" action="/home")
 					p Username:
 						.right_field
-							input#username(type="text", name="username")
+							input#username(type="text", name="username", placeholder="Username")
 
 					br
 					p Password:
 						.right_field
-							input#pword(type="password", name="pword")
+							input#password(type="password", name="password", placeholder="******")
 
 					br
 					.left_field
