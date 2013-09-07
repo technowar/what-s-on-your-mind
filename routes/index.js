@@ -4,5 +4,7 @@
  */
 
 exports.page = function(req, res){
-	res.render('index', { title: 'Training Project' });
+	if (req.user) {	res.redirect('/home'); }
+
+	else { res.render('index', { title: 'Training Project' }); }
 };

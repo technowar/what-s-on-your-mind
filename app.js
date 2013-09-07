@@ -8,21 +8,22 @@ var http = require('http');
 var path = require('path');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var mongoose = require('mongoose');
 
 /**
  * Routes
  */
 
-var wildcard = require('./routes/wildcard');
 var index = require('./routes/index');
 var signup = require('./routes/signup');
+var login = require('./routes/login');
 var home = require('./routes/home');
+var logout = require('./routes/logout');
+var wildcard = require('./routes/wildcard');
 
 /**
  * Database
  */
-
-var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/trainingProject');
 
@@ -94,9 +95,6 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-// Force to redirect page to index
-app.get('/:wildcard', wildcard.redirect);
-
 // Index page
 app.get('/', index.page);
 
@@ -104,7 +102,16 @@ app.get('/', index.page);
 app.post('/signup', signup.user);
 
 // Login User
-app.post('/home', home.page);
+app.post('/login', login.page);
+
+// Homepage
+app.get('/home', home.page);
+
+// Logout User
+app.get('/logout', logout.user);
+
+// Force to redirect page to index
+app.get('/:wildcard', wildcard.redirect);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
