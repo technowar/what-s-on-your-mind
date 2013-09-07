@@ -18,6 +18,8 @@ var index = require('./routes/index');
 var signup = require('./routes/signup');
 var login = require('./routes/login');
 var home = require('./routes/home');
+var profile = require('./routes/profile');
+var password = require('./routes/password');
 var logout = require('./routes/logout');
 var wildcard = require('./routes/wildcard');
 
@@ -106,6 +108,14 @@ app.post('/login', login.page);
 
 // Homepage
 app.get('/home', home.page);
+
+// Profile
+app.get('/profile', profile.page);
+app.post('/profile', profile.save);
+
+// Password
+app.get('/password', password.page);
+app.post('/password', password.save);
 
 // Logout User
 app.get('/logout', logout.user);

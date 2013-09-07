@@ -1,13 +1,14 @@
 var mongoose = require('mongoose');
-	
+var models = mongoose.models;
+
 exports.init = function() {
 	var UserSchema = mongoose.Schema({
-		fname: {
+		firstname: {
 			type: String,
 			required: true,
 			match: /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/
 		},
-		lname: {
+		lastname: {
 			type: String,
 			required: true,
 			match: /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/
@@ -43,6 +44,27 @@ exports.init = function() {
 		}
 
 		return true;
+	};
+
+	UserSchema.methods.updateUser = function(firstname, lastname, callback) {
+		models.User.update({
+			_id: this._id
+		}, {
+			$set: {
+				firstname: firstname,
+				lastname: lastname
+			}
+		}, callback);
+	};
+
+	UserSchema.methods.updatePassword = function(password, callback) {
+		models.User.update({
+			_id: this._id
+		}, {
+			$set: {
+				password: password
+			}
+		}, callback);
 	};
 
 	mongoose.model('User', UserSchema);
