@@ -1,0 +1,27 @@
+extends layout
+
+block content
+	h1= title
+
+	.right_field
+		a(href="/password") Change Password
+		span.sub  | 
+		a(href="/home") Home
+
+	#wrap.left_col
+
+	.field
+		.left_field
+			form(method="POST" action="/profile")
+				p First Name:
+					.right_field
+						input#firstname(type="text", name="firstname", placeholder="First Name", value=user.firstname)
+
+				br
+				p Last Name:
+					.right_field
+						input#lastname(type="text", name="lastname", placeholder="Last Name", value=user.lastname)
+
+				br
+				.left_field
+					p: button(type="submit") Save
