@@ -2,7 +2,12 @@ var mongoose = require('mongoose');
 	
 exports.init = function() {
 	var UserSchema = mongoose.Schema({
-		name: {
+		fname: {
+			type: String,
+			required: true,
+			match: /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/
+		},
+		lname: {
 			type: String,
 			required: true,
 			match: /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/

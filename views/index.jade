@@ -9,9 +9,14 @@ block content
 		.field
 			.left_field
 				form(method="POST" action="/signup")
-					p Name:
+					p First Name:
 						.right_field
-							input#name(type="text", name="name", placeholder="Name")
+							input#name(type="text", name="fname", placeholder="First Name")
+
+					br
+					p Last Name:
+						.right_field
+							input#name(type="text", name="lname", placeholder="Last Name")
 
 					br
 					p Username:
