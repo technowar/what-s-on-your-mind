@@ -9,7 +9,9 @@ exports.page = function(req, res){
 			title: 'Welcome',
 			user: req.user
 		});
+
+		return;
 	}
 
-	else { res.render('index', { title: 'Training Project' }); }
+	else { return res.render('index', { title: 'Training Project' }); }
 };

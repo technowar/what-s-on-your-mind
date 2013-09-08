@@ -10,8 +10,12 @@ exports.user = function(req, res){
 	var u = new models.User(req.body);
 
 	u.save(function(err, user) {
-		if (err) { res.render('signuperror', { title: 'Fields not valid' }); }
+		if (err) {
+			res.render('signuperror', { title: 'Fields not valid' });
 
-		else { res.redirect('/'); }
+			return;
+		}
+
+		else { return res.redirect('/'); }
 	});
 };

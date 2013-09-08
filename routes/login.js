@@ -14,7 +14,7 @@ exports.page = function(req, res, next){
 		req.logIn(user, function(err) {
 			if (err) { return res.send('Bad Request'); }
 
-			else { res.redirect('/home'); }
+			else { return res.redirect('/home'); }
 		});
 	})(req, res, next);
 };

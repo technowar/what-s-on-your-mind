@@ -4,7 +4,7 @@
  */
 
 exports.page = function(req, res){
-	if (req.user) {	res.redirect('/home'); }
+	if (req.user) { return res.redirect('/home'); }
 
-	else { res.render('index', { title: 'Training Project' }); }
+	else { return res.render('index', { title: 'Training Project' }); }
 };
