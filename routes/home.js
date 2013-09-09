@@ -8,10 +8,19 @@ var models = mongoose.models;
 
 exports.page = function(req, res){
 	if (req.user) {
-		res.render('home', {
-			title: 'Welcome',
-			user: req.user,
-			diaryInput: req.body
+		console.log(req.user);
+
+		var myDiary = models.Diary;
+
+		myDiary.find({}, function(err, docs) {
+			if (err) { return console.log(err); }
+
+			else {
+				res.render('home', {
+					title: 'Welcome',
+					user: req.user
+				});
+			}
 		});
 
 		return;
@@ -21,27 +30,23 @@ exports.page = function(req, res){
 };
 
 exports.diary = function(req, res) {
-	res.end(JSON.stringify(req.body));
-
-	var diaryContent = req.body.content.trim();
+	var diaryContent = req.body.diarycontent.trim();
 	var diaryData = {};
 
-	diaryData.content = diaryContent;
+	diaryData.diarycontent = diaryContent;
 	diaryData.owner = req.user._id;
 
-	var diary = new models.Diary(diaryData);
+	var d = new models.Diary(diaryData);
 
-	diary.save(function(err, diary) {
-		if (!err) {
-			req.user.updateDiaries(diary._id, function(err, result) {
-				if (!err) { return console.log(diary._id); }
-
-				else { return console.log(err); }
-			});
-		}
+	d.save(function(err, diary) {
+		if (err) { return console.log(err);	}
 
 		else {
-			console.log(err);
+			req.user.updateDiaries(diary._id, function(err, result) {
+				if (!err) { return res.redirect('/home'); }
+
+				else { return res.redirect('/home'); }
+			});
 		}
 	});
 };

@@ -97,7 +97,7 @@ exports.init = function() {
  */
 
 	var DiarySchema = mongoose.Schema({
-		content: {
+		diarycontent: {
 			type: String,
 			required: true,
 			match: /^[a-zA-Z]{1,160}$/

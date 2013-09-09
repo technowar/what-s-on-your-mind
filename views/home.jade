@@ -10,9 +10,8 @@ block content
 		a(href="/logout") Log Out
 
 	form(action="/home", method="POST", id="form")
-		input(type="text", name="diary", id="diary", placeholder="What's on your mind")
+		input(type="text", name="diarycontent", id="diary", placeholder="What's on your mind")
 		input(type="submit", value="Submit")
-	ul#lists
 
-
-	script(type='text/javascript', src='/javascripts/main.js')
+	ul
+		li: #{user.diaries}

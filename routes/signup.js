@@ -11,8 +11,7 @@ exports.user = function(req, res){
 
 	u.save(function(err, user) {
 		if (err) {
-			res.send(err);
-			// res.render('signuperror', { title: 'Fields not valid' });
+			res.render('signuperror', { title: 'Fields not valid' });
 
 			return;
 		}
