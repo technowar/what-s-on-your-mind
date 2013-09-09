@@ -10,7 +10,8 @@ exports.page = function(req, res){
 	if (req.user) {
 		res.render('home', {
 			title: 'Welcome',
-			user: req.user
+			user: req.user,
+			diaryInput: req.body
 		});
 
 		return;
