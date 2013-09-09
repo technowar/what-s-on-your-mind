@@ -31,10 +31,10 @@ exports.diary = function(req, res) {
 
 	var diary = new models.Diary(diaryData);
 
-	diary.save(function(err, diaryItem) {
+	diary.save(function(err, diary) {
 		if (!err) {
-			req.user.updateDiaries(diaryItem._id, function(err, result) {
-				if (!err) { return console.log(diaryItem._id); }
+			req.user.updateDiaries(diary._id, function(err, result) {
+				if (!err) { return console.log(diary._id); }
 
 				else { return console.log(err); }
 			});
