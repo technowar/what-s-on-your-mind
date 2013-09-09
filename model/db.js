@@ -11,12 +11,12 @@ exports.init = function() {
 		firstname: {
 			type: String,
 			required: true,
-			match: /^[[a-zA-Z]+]{1,20}$/
+			match: /^[\w\s]{1,20}$/
 		},
 		lastname: {
 			type: String,
 			required: true,
-			match: /^[[a-zA-Z]+]{1,20}$/
+			match: /^[\w\s]{1,20}$/
 		},
 		username: {
 			type: String,
@@ -80,14 +80,14 @@ exports.init = function() {
 		}, callback);
 	};
 
-	UserSchema.methods.updateDiaries = function(diaryId) {
+	UserSchema.methods.updateDiaries = function(diaryId, callback) {
 		models.User.update({
 			_id: this._id
 		}, {
 			$push: {
 				diaries: diaryId
 			}
-		});
+		}, callback);
 	};
 
 	mongoose.model('User', UserSchema);
@@ -100,7 +100,7 @@ exports.init = function() {
 		content: {
 			type: String,
 			required: true,
-			match: /^[[a-zA-Z]+]{1,160}$/
+			match: /^[a-zA-Z]{1,160}$/
 		},
 		owner: {
 			type: mongoose.Schema.Types.ObjectId,

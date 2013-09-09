@@ -29,13 +29,19 @@ exports.diary = function(req, res) {
 
 	var diary = new models.Diary(diaryData);
 
-	console.log(diaryData);
+	console.log(diary._id);
 
-	diary.save(function(err, d) {
-		if (err) { return res.send('Error'); }
+	diary.save(function(err, diaryItem) {
+		if (!err) {
+			req.user.updateDiaries(diaryItem._id, function(err, result) {
+				if (!err) { return console.log(result); }
+
+				else { return console.log(err); }
+			});
+		}
 
 		else {
-			req.user.updateDiaries(d._id);
+			console.log(err);
 		}
 	});
 };
