@@ -15,9 +15,9 @@ exports.save = function(req, res){
 
 	if (!req.user) { return res.redirect('/'); }
 
-	if (newPassword.length === 0 || newPassword === '') { return res.render('passworderror', { title: 'Fields not valid' }); }
+	if (newPassword.length === 0 || newPassword === '') { return res.render('updateerror', { title: 'Fields not valid' }); }
 
-	if (newPassword !== confirmPassword) { return res.render('passworderror', { title: 'Password does not match' }); }
+	if (newPassword !== confirmPassword) { return res.render('updateerror', { title: 'Password does not match' }); }
 
 	req.user.updatePassword(newPassword, function(err, result) {
 		if (!err) { return res.redirect('/home'); }

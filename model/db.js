@@ -6,12 +6,12 @@ exports.init = function() {
 		firstname: {
 			type: String,
 			required: true,
-			match: /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/
+			match: /^[[a-zA-Z]+]{1,20}$/
 		},
 		lastname: {
 			type: String,
 			required: true,
-			match: /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/
+			match: /^[[a-zA-Z]+]{1,20}$/
 		},
 		username: {
 			type: String,
