@@ -108,6 +108,7 @@ app.post('/login', login.page);
 
 // Homepage
 app.get('/home', home.page);
+app.post('/home', home.diary);
 
 // Profile
 app.get('/profile', profile.page);

@@ -2,6 +2,11 @@ var mongoose = require('mongoose');
 var models = mongoose.models;
 
 exports.init = function() {
+
+/**
+ * User Schema
+ */
+
 	var UserSchema = mongoose.Schema({
 		firstname: {
 			type: String,
@@ -35,8 +40,16 @@ exports.init = function() {
 			lowercase: true,
 			required: true,
 			match: /^.{6,20}$/
-		}
+		},
+		diaries: [{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Diary'
+		}]
 	});
+
+/**
+ * Update User
+ */
 
 	UserSchema.methods.validPassword = function(password) {
 		if (this.password !== password) {
@@ -67,7 +80,39 @@ exports.init = function() {
 		}, callback);
 	};
 
+	UserSchema.methods.updateDiaries = function(diaryId) {
+		models.User.update({
+			_id: this._id
+		}, {
+			$push: {
+				diaries: diaryId
+			}
+		});
+	};
+
 	mongoose.model('User', UserSchema);
+
+/**
+ * Diary Schema
+ */
+
+	var DiarySchema = mongoose.Schema({
+		content: {
+			type: String,
+			required: true,
+			match: /^[[a-zA-Z]+]{1,160}$/
+		},
+		owner: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'User'
+		},
+		createdAt: {
+			type: Date,
+			default: Date.now
+		}
+	});
+
+	mongoose.model('Diary', DiarySchema);
 
 	return mongoose.models;
 };

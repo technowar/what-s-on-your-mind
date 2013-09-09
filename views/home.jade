@@ -8,3 +8,10 @@ block content
 		a(href="/profile") Edit Profile
 		span.sub  | 
 		a(href="/logout") Log Out
+
+	form(action="/home", method="POST", id="form")
+		input(type="text", name="diary", id="diary", placeholder="What's on your mind")
+		input(type="submit", value="Send")
+	ul#lists
+
+	script(type='text/javascript', src='/javascripts/main.js')
