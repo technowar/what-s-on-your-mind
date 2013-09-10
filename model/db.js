@@ -100,7 +100,7 @@ exports.init = function() {
 		diarycontent: {
 			type: String,
 			required: true,
-			match: /^[a-zA-Z]{1,160}$/
+			match: /^.{1,160}$/
 		},
 		owner: {
 			type: mongoose.Schema.Types.ObjectId,
