@@ -7,7 +7,7 @@ one thing - post. Yet!
 
 1. Clone the repository
 2. Open terminal, and run `npm install` on the working directory
-3. Run `mongod` and `node app.js` respectively
+3. Run `mongod` and `node app.js` respectively on the terminal
 
 ## Or
 
