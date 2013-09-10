@@ -11,7 +11,7 @@ exports.page = function(req, res){
 		var myDiary = models.Diary;
 
 		myDiary.find({}, function(err, docs) {
-			if (err) { return console.log(err); }
+			if (err) { return console.log(err); } //Error trap this
 
 			else {
 				res.render('home', {
@@ -44,12 +44,9 @@ exports.diary = function(req, res) {
 
 		else {
 			req.user.updateDiaries(diary._id, function(err, result) {
-				if (!err) {
-					res.redirect('/home');
-					console.log('Added!'); // Delete this after
-				}
+				if (err) { return console.log(err); } // Error trap this
 
-				else { return console.log(err); } // Error trap this
+				else { return res.redirect('/home'); }
 			});
 		}
 	});

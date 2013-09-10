@@ -18,6 +18,7 @@ var index = require('./routes/index');
 var signup = require('./routes/signup');
 var login = require('./routes/login');
 var home = require('./routes/home');
+var del = require('./routes/del');
 var profile = require('./routes/profile');
 var password = require('./routes/password');
 var logout = require('./routes/logout');
@@ -109,6 +110,9 @@ app.post('/login', login.page);
 // Homepage
 app.get('/home', home.page);
 app.post('/home', home.diary);
+
+// Delete
+app.get('/del', del.diary);
 
 // Profile
 app.get('/profile', profile.page);
