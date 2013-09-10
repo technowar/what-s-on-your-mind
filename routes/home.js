@@ -8,7 +8,6 @@ var models = mongoose.models;
 
 exports.page = function(req, res){
 	if (req.user) {
-		console.log(req.user);
 
 		var myDiary = models.Diary;
 
@@ -18,7 +17,8 @@ exports.page = function(req, res){
 			else {
 				res.render('home', {
 					title: 'Welcome',
-					user: req.user
+					user: req.user,
+					diaries: docs
 				});
 			}
 		});
@@ -38,14 +38,19 @@ exports.diary = function(req, res) {
 
 	var d = new models.Diary(diaryData);
 
+	console.log(diaryData); // Delete this after
+
 	d.save(function(err, diary) {
-		if (err) { return console.log(err);	}
+		if (err) { return console.log(err);	} // Error trap this
 
 		else {
 			req.user.updateDiaries(diary._id, function(err, result) {
-				if (!err) { return res.redirect('/home'); }
+				if (!err) {
+					res.redirect('/home');
+					console.log('Added!'); // Delete this after
+				}
 
-				else { return res.redirect('/home'); }
+				else { return console.log(err); } // Error trap this
 			});
 		}
 	});

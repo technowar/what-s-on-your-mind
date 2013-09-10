@@ -14,4 +14,6 @@ block content
 		input(type="submit", value="Submit")
 
 	ul
-		li: #{user.diaries}
+		-each userInput in diaries.reverse()
+			li= userInput.diarycontent
+			br
