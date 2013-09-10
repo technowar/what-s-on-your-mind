@@ -112,7 +112,7 @@ app.get('/home', home.page);
 app.post('/home', home.diary);
 
 // Delete
-app.get('/del', del.diary);
+app.get('/del/:diaryId', del.diary);
 
 // Profile
 app.get('/profile', profile.page);

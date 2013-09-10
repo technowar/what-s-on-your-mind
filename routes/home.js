@@ -42,7 +42,7 @@ exports.diary = function(req, res) {
 
 		else {
 			req.user.updateDiaries(diary._id, function(err, result) {
-				console.log(diary);
+				console.log(diary); // Delete this after
 
 				if (err) { return res.render('updateerror', { title: 'Something went wrong' }); }
 
