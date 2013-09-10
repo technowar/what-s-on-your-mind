@@ -4,13 +4,14 @@ block content
 	h1= title
 	h2= user.firstname
 
-	.right_field
-		a(href="/profile") Edit Profile
-		span.sub  | 
-		a(href="/logout") Log Out
+	.menu
+		.right_field
+			a(href="/profile") Edit Profile
+			span.sub  | 
+			a(href="/logout") Log Out
 
 	form(action="/home", method="POST", id="form")
-		input(type="text", name="diarycontent", id="diary", placeholder="What's on your mind")
+		textarea(rows='4', cols='70', name="diarycontent", id="diarycontent", placeholder="What's on your mind")
 		br
 		br
 		input(type="submit", value="Submit")

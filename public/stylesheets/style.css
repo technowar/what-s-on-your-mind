@@ -29,3 +29,9 @@ a {
 .right_field {
   float: right;
 }
+.menu {
+  overflow: auto;
+  padding: 4px;
+  border-bottom: 1px solid #aaaaaa;
+  margin-bottom: 1em;
+}
