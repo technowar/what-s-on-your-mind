@@ -38,7 +38,7 @@ exports.diary = function(req, res) {
 	var d = new models.Diary(diaryData);
 
 	d.save(function(err, diary) {
-		if (err) { return res.render('updateerror', { title: 'Something went wrong' });	}
+		if (err) { return res.render('updateerror', { title: 'Field not valid' });	}
 
 		else {
 			req.user.updateDiaries(diary._id, function(err, result) {
