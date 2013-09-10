@@ -17,6 +17,7 @@ block content
 		-each userInput in diaries.reverse()
 			if user._id.toString() === userInput.owner.toString()
 				li= userInput.diarycontent
+				li= userInput._id
 
 					.left_field
 					ul

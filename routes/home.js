@@ -11,7 +11,7 @@ exports.page = function(req, res){
 		var myDiary = models.Diary;
 
 		myDiary.find({}, function(err, docs) {
-			if (err) { return console.log(err); } //Error trap this
+			if (err) { return res.render('updateerror', { title: 'Something went wrong' }); }
 
 			else {
 				res.render('home', {
@@ -37,14 +37,14 @@ exports.diary = function(req, res) {
 
 	var d = new models.Diary(diaryData);
 
-	console.log(diaryData); // Delete this after
-
 	d.save(function(err, diary) {
-		if (err) { return console.log(err);	} // Error trap this
+		if (err) { return res.render('updateerror', { title: 'Something went wrong' });	}
 
 		else {
 			req.user.updateDiaries(diary._id, function(err, result) {
-				if (err) { return console.log(err); } // Error trap this
+				console.log(diary);
+
+				if (err) { return res.render('updateerror', { title: 'Something went wrong' }); }
 
 				else { return res.redirect('/home'); }
 			});
