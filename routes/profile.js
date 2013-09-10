@@ -3,9 +3,6 @@
  * GET/POST home page.
  */
 
-var mongoose = require('mongoose');
-var models = mongoose.models;
-
 exports.page = function(req, res){
 	if (req.user) {
 		res.render('profile', {

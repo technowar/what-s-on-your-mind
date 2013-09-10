@@ -14,9 +14,14 @@ block content
 		input(type="submit", value="Submit")
 
 	ul
-		h3= user._id
 		-each userInput in diaries.reverse()
 			if user._id.toString() === userInput.owner.toString()
 				li= userInput.diarycontent
-			
-			br
+
+					.left_field
+					ul
+						li= userInput.createdAt
+							span.sub  | 
+							a(href='/home') Delete
+							br
+							br
