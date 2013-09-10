@@ -16,5 +16,7 @@ block content
 	ul
 		h3= user._id
 		-each userInput in diaries.reverse()
-			li= userInput.diarycontent
+			if user._id.toString() === userInput.owner.toString()
+				li= userInput.diarycontent
+			
 			br
