@@ -8,7 +8,7 @@ var http = require('http');
 var path = require('path');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var mongoUrl  = process.env.MONGOHQ_URL || 'mongodb://localhost/trainingProject';
+var mongoUrl = process.env.MONGOHQ_URL || 'mongodb://localhost/trainingProject';
 
 /**
  * Routes
