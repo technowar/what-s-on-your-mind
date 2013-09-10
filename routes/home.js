@@ -8,7 +8,6 @@ var models = mongoose.models;
 
 exports.page = function(req, res){
 	if (req.user) {
-
 		var myDiary = models.Diary;
 
 		myDiary.find({}, function(err, docs) {
@@ -20,6 +19,18 @@ exports.page = function(req, res){
 					user: req.user,
 					diaries: docs
 				});
+
+				for (var index in docs) {
+					var docsOwner = docs[index];
+
+					if (docsOwner.owner === req.user._id) {
+						console.log('Equal');
+
+						return;
+					}
+
+					else { return console.log('Not Equal'); }
+				}
 			}
 		});
 

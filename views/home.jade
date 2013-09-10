@@ -14,6 +14,7 @@ block content
 		input(type="submit", value="Submit")
 
 	ul
+		h3= user._id
 		-each userInput in diaries.reverse()
 			li= userInput.diarycontent
 			br
