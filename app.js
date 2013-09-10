@@ -8,7 +8,7 @@ var http = require('http');
 var path = require('path');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var mongoose = require('mongoose');
+var mongoUrl  = process.env.MONGOHQ_URL || 'mongodb://localhost/trainingProject';
 
 /**
  * Routes
@@ -28,7 +28,7 @@ var wildcard = require('./routes/wildcard');
  * Database
  */
 
-mongoose.connect('mongodb://localhost/trainingProject');
+var mongoose = require('mongoose').connect(mongoUrl);
 
 var db = require('./model/db').init();
 var User = db.User;
