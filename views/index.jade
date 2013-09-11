@@ -3,55 +3,62 @@ extends layout
 block content
 	h1= title
 
-	#wrap.left_col
-		h2 Register
+	.container
+		.center_field
+			.span7.well
+				.area
+					form(method="POST" action="/login")
+						.heading
+							h4.form-heading Sign In
 
-		.field
-			.left_field
-				form(method="POST" action="/signup")
-					p First Name:
-						.right_field
-							input#firstname(type="text", name="firstname", placeholder="First Name")
+						.control-group
+							label.control-label(for='username') Username
+							.controls
+								input#username(type='text', name='username', placeholder='Username')
 
-					br
-					p Last Name:
-						.right_field
-							input#lastname(type="text", name="lastname", placeholder="Last Name")
+						.control-group
+							label.control-label(for='password') Password
+							.controls
+								input#password(type='password', name='password', placeholder='******')
 
-					br
-					p Username:
-						.right_field
-							input#username(type="text", name="username", placeholder="Username")
+						br
+						.control-group
+							.controls
+								button.btn.btn-success(type='submit') Sign in
 
-					br
-					p Email:
-						.right_field
-							input#email(type="email", name="email", placeholder="email@domain.com")
+		.center_field
+			.span7.well
+				.area
+					form(method="POST" action="/signup")
+						.heading
+							h4.form-heading Register
 
-					br
-					p Password:
-						.right_field
-							input#password(type="password", name="password", placeholder="******")
+						.control-group
+							label.control-label(for='firstname') First Name
+							.controls
+								input#firstname(type='text', name='firstname', placeholder='First Name')
 
-					br
-					.right_field
-						p: button(type="submit") Create
+						.control-group
+							label.control-label(for='lastname') Last Name
+							.controls
+								input#lastname(type='text', name='lastname', placeholder='Last Name')
 
-	#wrap.right_col
-		h2 Login
+						.control-group
+							label.control-label(for='email') Email
+							.controls
+								input#email(type='text', name='email', placeholder='email@domain.com')
 
-		.field
-			.left_field
-				form(method="POST" action="/login")
-					p Username:
-						.right_field
-							input#username(type="text", name="username", placeholder="Username")
+						.control-group
+							label.control-label(for='username') Username
+							.controls
+								input#username(type='text', name='username', placeholder='Username')
 
-					br
-					p Password:
-						.right_field
-							input#password(type="password", name="password", placeholder="******")
+						.control-group
+							label.control-label(for='password') Password
+							.controls
+								input#password(type='password', name='password', placeholder='******')
 
-					br
-					.left_field
-						p: button(type="submit") Login
+						br
+						.control-group
+							.controls
+								button.btn.btn-success(type='submit') Sign up

@@ -6,7 +6,7 @@
 exports.page = function(req, res){
 	if (req.user) {
 		res.render('profile', {
-			title: 'Edit Profile',
+			title: 'Update Profile',
 			user: req.user
 		});
 

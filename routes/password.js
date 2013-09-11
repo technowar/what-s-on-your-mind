@@ -4,7 +4,7 @@
  */
 
 exports.page = function(req, res){
-	if (req.user) { return res.render('password', { title: 'Edit Password' }); }
+	if (req.user) { return res.render('password', { title: 'Update Password' }); }
 
 	else { return res.render('index', { title: 'What\'s On Your Mind' }); }
 };

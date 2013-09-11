@@ -10,21 +10,24 @@ block content
 			span.sub  | 
 			a(href="/logout") Log Out
 
-	form(action="/home", method="POST", id="form")
-		textarea(rows='4', cols='70', name="diarycontent", id="diarycontent", placeholder="What's on your mind")
-		br
-		br
-		input(type="submit", value="Submit")
+	.center_field
+		.span9.well
+			form(accept-charset='UTF-8', action="/home", method="POST", id="form")
+				textarea(rows='4', cols='100', name="diarycontent", id="diarycontent", placeholder="What's on your mind")
+				br
+				br
+				button.btn.btn-info(type='submit') Post New Message
 
-	ul
-		-each userInput in diaries.reverse()
-			if user._id.toString() === userInput.owner.toString()
-				li= userInput.diarycontent
+	.center_field
+		.span9.well
+			-each userInput in diaries.reverse()
+				if user._id.toString() === userInput.owner.toString()
+					li= userInput.diarycontent
 
-					.left_field
-					ul
-						li= userInput.createdAt
-							span.sub  | 
-							a(href='/del/' + userInput._id) Delete
-							br
-							br
+						.left_field
+						ul
+							li= userInput.createdAt
+								span.sub  | 
+								a(href='/del/' + userInput._id) Delete
+								br
+								br
