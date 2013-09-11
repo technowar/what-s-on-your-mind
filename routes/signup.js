@@ -16,6 +16,6 @@ exports.user = function(req, res){
 			return;
 		}
 
-		else { return res.redirect('/'); }
+		else { return res.render('signupsuccess', { title: 'Congratulations' }); }
 	});
 };
