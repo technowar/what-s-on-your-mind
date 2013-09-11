@@ -17,5 +17,5 @@ exports.diary = function(req, res) {
 		});
 	}
 
-	else { return res.render('index', { title: 'Training Project' }); }
+	else { return res.render('index', { title: 'What\'s On Your Mind' }); }
 };

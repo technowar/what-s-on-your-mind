@@ -6,7 +6,7 @@
 exports.page = function(req, res){
 	if (req.user) { return res.render('password', { title: 'Edit Password' }); }
 
-	else { return res.render('index', { title: 'Training Project' }); }
+	else { return res.render('index', { title: 'What\'s On Your Mind' }); }
 };
 
 exports.save = function(req, res){

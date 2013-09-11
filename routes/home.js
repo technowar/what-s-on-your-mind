@@ -25,7 +25,7 @@ exports.page = function(req, res){
 		return;
 	}
 
-	else { return res.render('index', { title: 'Training Project' }); }
+	else { return res.render('index', { title: 'What\'s On Your Mind' }); }
 };
 
 exports.diary = function(req, res) {
